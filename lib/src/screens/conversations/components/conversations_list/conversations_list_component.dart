@@ -24,6 +24,7 @@ class ConversationsListComponent extends StatelessWidget {
           if (index == 0) {
             return ListTile(
               leading: CircleAvatar(
+                backgroundColor: Theme.of(context).dividerColor,
                 backgroundImage: NetworkImage(
                   "https://media.licdn.com/dms/image/C5603AQFTmUkulb9RXA/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=SkR--HptIqilOHLbjCQQTjrFuFzFkapsz-GS4Lb9_Cw",
                 ),
@@ -40,6 +41,7 @@ class ConversationsListComponent extends StatelessWidget {
           } else {
             return ListTile(
               leading: CircleAvatar(
+                backgroundColor: Theme.of(context).dividerColor,
                 backgroundImage: NetworkImage(
                   "https://i.pravatar.cc/150?img=$index",
                 ),

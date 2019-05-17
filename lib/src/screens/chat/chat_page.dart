@@ -22,7 +22,10 @@ class _ChatPageState extends State<ChatPage> {
     return Container(
       decoration: BoxDecoration(
         color: Color(0XFFefefef),
-        border: Border(top: BorderSide(color: Colors.grey[300]), left: BorderSide(color: Colors.grey[300]),),
+        border: Border(
+          top: BorderSide(color: Colors.grey[300]),
+          left: BorderSide(color: Colors.grey[300]),
+        ),
       ),
       height: 63,
       width: double.infinity,
@@ -76,13 +79,21 @@ class _ChatPageState extends State<ChatPage> {
       height: 59,
       decoration: BoxDecoration(
         color: Color(0XFFefefef),
-        border: Border(bottom: BorderSide(color: Colors.grey[300]), left: BorderSide(color: Colors.grey[300]),),
+        border: Border(
+          bottom: BorderSide(color: Colors.grey[300]),
+          left: BorderSide(color: Colors.grey[300]),
+        ),
       ),
       child: Row(
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: CircleAvatar(backgroundImage: NetworkImage("https://i.udemycdn.com/user/200_H/51101684_c590_2.jpg"),),
+            child: CircleAvatar(
+              backgroundColor: Theme.of(context).dividerColor,
+              backgroundImage: NetworkImage(
+                "https://i.udemycdn.com/user/200_H/51101684_c590_2.jpg",
+              ),
+            ),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
