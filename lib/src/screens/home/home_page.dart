@@ -1,5 +1,6 @@
 import 'package:flutter_web/material.dart';
 import 'package:flutter_web/rendering.dart';
+import 'package:flutter_web/widgets.dart';
 import 'package:whatsapp_web/src/screens/chat/chat_page.dart';
 import 'package:whatsapp_web/src/screens/conversations/conversations_page.dart';
 
@@ -11,7 +12,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Widget _buildScreen() {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 20,),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(7),
+        boxShadow: [
+        BoxShadow(color: Colors.black26, blurRadius: 4),
+      ]),
+      margin: EdgeInsets.symmetric(vertical: 20,),
       child: Row(
         children: <Widget>[
           Expanded(

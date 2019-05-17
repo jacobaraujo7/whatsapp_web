@@ -22,7 +22,7 @@ class _ChatPageState extends State<ChatPage> {
     return Container(
       decoration: BoxDecoration(
         color: Color(0XFFefefef),
-        border: Border(top: BorderSide(color: Colors.grey[400])),
+        border: Border(top: BorderSide(color: Colors.grey[300])),
       ),
       height: 63,
       width: double.infinity,
