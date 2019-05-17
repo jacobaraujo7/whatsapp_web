@@ -21,17 +21,39 @@ class ConversationsListComponent extends StatelessWidget {
           );
         },
         itemBuilder: (context, index) {
-          return ListTile(
-            leading: CircleAvatar(),
-            title: Text("Conversation $index"),
-            subtitle: Text("Received message ..."),
-            trailing: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text("18:34", style: TextStyle(fontSize: 12)),
-              ],
-            ),
-          );
+          if (index == 0) {
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  "https://media.licdn.com/dms/image/C5603AQFTmUkulb9RXA/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=SkR--HptIqilOHLbjCQQTjrFuFzFkapsz-GS4Lb9_Cw",
+                ),
+              ),
+              title: Text("Vilson"),
+              subtitle: Text("Oi bb"),
+              trailing: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text("18:34", style: TextStyle(fontSize: 12)),
+                ],
+              ),
+            );
+          } else {
+            return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  "https://i.pravatar.cc/150?img=$index",
+                ),
+              ),
+              title: Text("Conversation $index"),
+              subtitle: Text("Received message ..."),
+              trailing: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text("18:34", style: TextStyle(fontSize: 12)),
+                ],
+              ),
+            );
+          }
         },
       ),
     );
