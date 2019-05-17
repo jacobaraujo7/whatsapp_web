@@ -9,7 +9,8 @@ class AppbarComponent extends StatelessWidget {
       child: ListTile(
         leading: CircleAvatar(
           backgroundImage: NetworkImage(
-              "https://media.licdn.com/dms/image/C5603AQEKYex09zfWlg/profile-displayphoto-shrink_100_100/0?e=1563408000&v=beta&t=5FoN-PaQjLNlPGFqXKW2V4pvUqTPd5QfNNUnovyT5ic"),
+            "https://media.licdn.com/dms/image/C5603AQEKYex09zfWlg/profile-displayphoto-shrink_100_100/0?e=1563408000&v=beta&t=5FoN-PaQjLNlPGFqXKW2V4pvUqTPd5QfNNUnovyT5ic",
+          ),
         ),
         trailing: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
