@@ -8,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter WhatsApp',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         dividerColor: Color(0xFFBDC1C3),
