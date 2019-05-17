@@ -1,7 +1,7 @@
 import 'package:flutter_web/material.dart';
 import 'package:flutter_web/rendering.dart';
 import 'package:whatsapp_web/src/screens/chat/chat_page.dart';
-import 'package:whatsapp_web/src/screens/conversation/conversation_page.dart';
+import 'package:whatsapp_web/src/screens/conversations/conversations_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
