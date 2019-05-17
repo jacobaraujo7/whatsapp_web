@@ -19,13 +19,13 @@ class FindbarComponent extends StatelessWidget {
           child: TextField(
             decoration: InputDecoration(
               border: InputBorder.none,
+              hintText: "Search or start new chat",
+              hintStyle: TextStyle(color: Color(0xFFBDC1C3)),
               prefixIcon: Icon(
                 Icons.search,
                 size: 18,
-                color: Theme.of(context).dividerColor,
+                color: Color(0xFFBDC1C3),
               ),
-              hintText: "Search or start new chat",
-              hintStyle: TextStyle(),
             ),
           ),
         ),

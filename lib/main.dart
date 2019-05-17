@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter WhatsApp',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        dividerColor: Color(0xFFBDC1C3),
+        dividerColor: Color(0xFFF2F2F2),
         fontFamily: "Roboto",
         appBarTheme: AppBarTheme(
           color: Color(0xFFEEEEEE),
