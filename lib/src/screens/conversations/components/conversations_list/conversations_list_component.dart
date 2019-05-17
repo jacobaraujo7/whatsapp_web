@@ -11,8 +11,8 @@ class ConversationsListComponent extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             leading: CircleAvatar(),
-            title: Text("Conversa $index"),
-            subtitle: Text("Mensagem recebida ..."),
+            title: Text("Conversation $index"),
+            subtitle: Text("Received message ..."),
           );
         },
       ),
