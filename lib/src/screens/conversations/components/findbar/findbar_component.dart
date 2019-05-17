@@ -9,6 +9,7 @@ class FindbarComponent extends StatelessWidget {
       duration: Duration(milliseconds: 5),
       margin: EdgeInsets.fromLTRB(12, 7, 14, 7),
       child: Container(
+        padding: EdgeInsets.only(right: 15),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(20),
