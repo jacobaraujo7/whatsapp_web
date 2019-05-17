@@ -82,7 +82,7 @@ class _ChatPageState extends State<ChatPage> {
         children: <Widget>[
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: CircleAvatar(),
+            child: CircleAvatar(backgroundImage: NetworkImage("https://i.udemycdn.com/user/200_H/51101684_c590_2.jpg"),),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
