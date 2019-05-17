@@ -21,20 +21,24 @@ class _ChatPageState extends State<ChatPage> {
   Widget _buildInputBox() {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.grey[300],
+        color: Color(0XFFefefef),
         border: Border(top: BorderSide(color: Colors.grey[400])),
       ),
       height: 63,
       width: double.infinity,
       child: Row(
         children: <Widget>[
-          Container(width: 10,),
+          Container(
+            width: 10,
+          ),
           IconButton(
             icon: Icon(Icons.sentiment_satisfied, size: 30),
             onPressed: () {},
             color: Colors.grey,
           ),
-          Container(width: 10,),
+          Container(
+            width: 10,
+          ),
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -51,12 +55,17 @@ class _ChatPageState extends State<ChatPage> {
             ),
           ),
           IconButton(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-            icon: Icon(Icons.mic, size: 30,),
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            icon: Icon(
+              Icons.mic,
+              size: 30,
+            ),
             onPressed: () {},
             color: Colors.grey,
           ),
-          Container(width: 10,),
+          Container(
+            width: 10,
+          ),
         ],
       ),
     );
@@ -67,7 +76,7 @@ class _ChatPageState extends State<ChatPage> {
       height: 59,
       decoration: BoxDecoration(
         color: Color(0XFFefefef),
-        border: Border(bottom: BorderSide(color: Colors.grey[400])),
+        border: Border(bottom: BorderSide(color: Colors.grey[300]), left: BorderSide(color: Colors.grey[300]),),
       ),
       child: Row(
         children: <Widget>[
