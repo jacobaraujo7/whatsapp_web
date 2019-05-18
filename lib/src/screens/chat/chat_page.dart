@@ -1,8 +1,9 @@
 import 'package:flutter_web/material.dart';
 import 'package:whatsapp_web/src/models/room.dart';
 
-class ChatPage extends StatefulWidget {
+import 'components/message_blob/message_blob_component.dart';
 
+class ChatPage extends StatefulWidget {
   final Room room;
 
   const ChatPage({Key key, this.room}) : super(key: key);
@@ -19,6 +20,17 @@ class _ChatPageState extends State<ChatPage> {
         Image.network(
           "https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png",
           fit: BoxFit.cover,
+        ),
+        ListView.separated(
+          padding: EdgeInsets.symmetric(vertical: 18, horizontal: MediaQuery.of(context).size.width * 0.05),
+          itemCount: 50,
+          separatorBuilder: (context, index) => Container(height: 10),
+          itemBuilder: (context, index) {
+            return MessageBlobComponent(
+              me: index.isEven,
+              content: "Teste $index",
+            );
+          },
         ),
       ],
     );
