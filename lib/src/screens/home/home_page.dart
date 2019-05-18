@@ -12,12 +12,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Widget _buildScreen() {
     return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(7),
-        boxShadow: [
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.circular(7), boxShadow: [
         BoxShadow(color: Colors.black26, blurRadius: 4),
       ]),
-      margin: EdgeInsets.symmetric(vertical: 20,),
       child: Row(
         children: <Widget>[
           Expanded(
@@ -46,8 +44,8 @@ class _HomePageState extends State<HomePage> {
           ),
           Align(
             alignment: Alignment.center,
-                      child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: 1400),
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: 1400, maxHeight: 920),
               child: _buildScreen(),
             ),
           ),
