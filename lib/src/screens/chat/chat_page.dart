@@ -19,57 +19,59 @@ class _ChatPageState extends State<ChatPage> {
   }
 
   Widget _buildInputBox() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Color(0XFFefefef),
-        border: Border(
-          top: BorderSide(color: Colors.grey[300]),
-          left: BorderSide(color: Colors.grey[300]),
+    return ConstrainedBox(
+      constraints: BoxConstraints(maxHeight: 121.96),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color(0XFFefefef),
+          border: Border(
+            top: BorderSide(color: Colors.grey[300]),
+            left: BorderSide(color: Colors.grey[300]),
+          ),
         ),
-      ),
-      height: 63,
-      width: double.infinity,
-      child: Row(
-        children: <Widget>[
-          Container(
-            width: 10,
-          ),
-          IconButton(
-            icon: Icon(Icons.sentiment_satisfied, size: 30),
-            onPressed: () {},
-            color: Colors.grey,
-          ),
-          Container(
-            width: 10,
-          ),
-          Expanded(
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
+        padding: EdgeInsets.only(top: 5, bottom: 10),
+        width: double.infinity,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: <Widget>[
+            IconButton(
+              padding: EdgeInsets.symmetric(horizontal: 19),
+              icon: Icon(Icons.sentiment_very_satisfied, size: 26),
+              onPressed: () {},
+              color: Colors.grey,
+            ),
+            Expanded(
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(22),
-              ),
-              padding: EdgeInsets.symmetric(horizontal: 25),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: "Type a message",
-                  border: InputBorder.none,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(22),
+                  ),
+                  child: TextField(
+                    maxLines: null,
+                    keyboardType: TextInputType.multiline,
+                    decoration: InputDecoration(
+                      hintText: "Type a message",
+                      border: InputBorder.none,
+                      contentPadding: const EdgeInsets.symmetric(vertical: 10),
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
-          IconButton(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            icon: Icon(
-              Icons.mic,
-              size: 30,
+            IconButton(
+              padding: EdgeInsets.symmetric(horizontal: 19),
+              icon: Icon(
+                Icons.mic,
+                size: 26,
+              ),
+              onPressed: () {},
+              color: Colors.grey,
             ),
-            onPressed: () {},
-            color: Colors.grey,
-          ),
-          Container(
-            width: 10,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
