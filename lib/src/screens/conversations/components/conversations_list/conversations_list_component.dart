@@ -47,7 +47,10 @@ class ConversationsListComponent extends StatelessWidget {
                 ),
               ),
               title: Text("Conversation $index"),
-              subtitle: Text("Received message ..."),
+              subtitle: Text(
+                "Received message",
+                overflow: TextOverflow.ellipsis,
+              ),
               trailing: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
