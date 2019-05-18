@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: InputDecorationTheme(
           hintStyle: TextStyle(
             fontSize: 14,
-          )
-        )
+          ),
+        ),
       ),
       home: HomePage(),
     );
