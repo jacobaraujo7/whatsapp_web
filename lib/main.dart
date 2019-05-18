@@ -1,6 +1,7 @@
 import 'package:flutter_web/material.dart';
 import 'package:whatsapp_web/src/screens/home/home_page.dart';
 import 'package:bloc_pattern/bloc_pattern.dart';
+import 'package:whatsapp_web/src/shared/blocs/channel_bloc.dart';
 import 'package:whatsapp_web/src/shared/blocs/room_bloc.dart';
 
 void main() => runApp(MyApp());
@@ -10,6 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       blocs: [
+        Bloc((i) => ChannelBloc()),
         Bloc((i) => RoomBloc()),
       ],
       child: MaterialApp(
