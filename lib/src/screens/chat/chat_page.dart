@@ -1,5 +1,8 @@
 import 'package:flutter_web/material.dart';
+import 'package:whatsapp_web/src/models/message.dart';
 import 'package:whatsapp_web/src/models/room.dart';
+import 'package:whatsapp_web/src/models/user.dart';
+import 'package:whatsapp_web/src/shared/mixins/after_layout_mixin.dart';
 
 import 'components/message_blob/message_blob_component.dart';
 
@@ -12,7 +15,9 @@ class ChatPage extends StatefulWidget {
   _ChatPageState createState() => _ChatPageState();
 }
 
-class _ChatPageState extends State<ChatPage> {
+class _ChatPageState extends State<ChatPage> with AfterLayoutMixin {
+  ScrollController _controller;
+
   Widget _buildMessage() {
     return Stack(
       fit: StackFit.expand,
@@ -22,13 +27,23 @@ class _ChatPageState extends State<ChatPage> {
           fit: BoxFit.cover,
         ),
         ListView.separated(
-          padding: EdgeInsets.symmetric(vertical: 18, horizontal: MediaQuery.of(context).size.width * 0.05),
+          controller: _controller,
+          padding: EdgeInsets.symmetric(
+              vertical: 18,
+              horizontal: MediaQuery.of(context).size.width * 0.05),
           itemCount: 50,
           separatorBuilder: (context, index) => Container(height: 10),
           itemBuilder: (context, index) {
             return MessageBlobComponent(
               me: index.isEven,
-              content: "Teste $index",
+              message: Message(
+                user: User(
+                  id: index.toString(),
+                  nick: index.isEven ? "Usuário 01" : "Usuário 2",
+                ),
+                message: "Teste $index",
+                time: DateTime.now().millisecondsSinceEpoch,
+              ),
             );
           },
         ),
@@ -164,6 +179,19 @@ class _ChatPageState extends State<ChatPage> {
           )
         ],
       ),
+    );
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = ScrollController();
+  }
+
+  @override
+  void afterLayout(Duration duration) {
+    _controller.position.moveTo(
+      _controller.position.maxScrollExtent,
     );
   }
 
