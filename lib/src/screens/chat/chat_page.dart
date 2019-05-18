@@ -29,46 +29,62 @@ class _ChatPageState extends State<ChatPage> {
             left: BorderSide(color: Colors.grey[300]),
           ),
         ),
-        padding: EdgeInsets.only(top: 5, bottom: 10),
+        padding: EdgeInsets.symmetric(vertical: 10),
         width: double.infinity,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            IconButton(
-              padding: EdgeInsets.symmetric(horizontal: 19),
-              icon: Icon(Icons.sentiment_very_satisfied, size: 26),
-              onPressed: () {},
-              color: Colors.grey,
-            ),
             Expanded(
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(22),
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(22),
-                  ),
-                  child: TextField(
-                    maxLines: null,
-                    keyboardType: TextInputType.multiline,
-                    decoration: InputDecoration(
-                      hintText: "Type a message",
-                      border: InputBorder.none,
-                      contentPadding: const EdgeInsets.symmetric(vertical: 10),
+              child: Stack(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 57),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(22),
+                      child: Container(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(22),
+                        ),
+                        child: TextField(
+                          maxLines: null,
+                          keyboardType: TextInputType.multiline,
+                          decoration: InputDecoration(
+                            hintText: "Type a message",
+                            border: InputBorder.none,
+                            contentPadding:
+                                const EdgeInsets.symmetric(vertical: 10),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  Positioned(
+                    left: 0,
+                    bottom: -5,
+                    child: IconButton(
+                      padding: EdgeInsets.symmetric(horizontal: 19),
+                      icon: Icon(Icons.sentiment_very_satisfied, size: 26),
+                      onPressed: () {},
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Positioned(
+                    right: 0,
+                    bottom: -5,
+                    child: IconButton(
+                      padding: EdgeInsets.symmetric(horizontal: 19),
+                      icon: Icon(
+                        Icons.mic,
+                        size: 26,
+                      ),
+                      onPressed: () {},
+                      color: Colors.grey,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            IconButton(
-              padding: EdgeInsets.symmetric(horizontal: 19),
-              icon: Icon(
-                Icons.mic,
-                size: 26,
-              ),
-              onPressed: () {},
-              color: Colors.grey,
             ),
           ],
         ),
