@@ -16,6 +16,11 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
           color: Color(0xFFEEEEEE),
         ),
+        inputDecorationTheme: InputDecorationTheme(
+          hintStyle: TextStyle(
+            fontSize: 14,
+          )
+        )
       ),
       home: HomePage(),
     );
