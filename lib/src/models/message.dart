@@ -5,6 +5,10 @@ class Message {
   final User user;
   final String message;
 
+  DateTime get dateTime => DateTime.fromMillisecondsSinceEpoch(time);
+  String get formatedDateTime => "${dateTime.day.toString().padLeft(2, "0")}/${dateTime.month.toString().padLeft(2, "0")}/${dateTime.year.toString().padLeft(2, "0")} ${dateTime.hour.toString().padLeft(2, "0")}:${dateTime.minute.toString().padLeft(2, "0")}";
+  // DateTime get formatedDateTime => DateTime.fromMillisecondsSinceEpoch(time);
+
   Message({this.time, this.user, this.message});
 
   factory Message.fromJson(dynamic json){
