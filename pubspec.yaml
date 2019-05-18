@@ -12,7 +12,6 @@ dependencies:
     git:
       url: https://github.com/jacobaraujo7/bloc-pattern.git
       ref: web
-  web_socket_channel: ^1.0.12
   rxdart: ^0.22.0
 
 dev_dependencies:
