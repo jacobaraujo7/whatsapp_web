@@ -1,6 +1,12 @@
 import 'package:flutter_web/material.dart';
+import 'package:whatsapp_web/src/models/room.dart';
 
 class ChatPage extends StatefulWidget {
+
+  final Room room;
+
+  const ChatPage({Key key, this.room}) : super(key: key);
+
   @override
   _ChatPageState createState() => _ChatPageState();
 }
@@ -109,7 +115,7 @@ class _ChatPageState extends State<ChatPage> {
             child: CircleAvatar(
               backgroundColor: Theme.of(context).dividerColor,
               backgroundImage: NetworkImage(
-                "https://i.udemycdn.com/user/200_H/51101684_c590_2.jpg",
+                widget.room.img,
               ),
             ),
           ),
@@ -117,7 +123,7 @@ class _ChatPageState extends State<ChatPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Jacob Moura", style: TextStyle(fontSize: 16)),
+              Text(widget.room.title, style: TextStyle(fontSize: 16)),
               Container(height: 5),
               Text(
                 "Online",

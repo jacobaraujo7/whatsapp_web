@@ -1,12 +1,36 @@
+import 'package:bloc_pattern/bloc_pattern.dart';
 import 'package:flutter_web/material.dart';
+import 'package:whatsapp_web/src/models/room.dart';
+import 'package:whatsapp_web/src/shared/blocs/room_bloc.dart';
 
 class ConversationsListComponent extends StatelessWidget {
+
+  List<Room> list = [
+    Room(
+      img: "https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/4c/6a/df/4c6adfa3-b9c0-25aa-60f9-99701b172b1f/AppIcon-1x_U007emarketing-85-220-0-3.png/246x0w.jpg",
+      title: "Sala 1",
+    ),
+    Room(
+      img: "https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/4c/6a/df/4c6adfa3-b9c0-25aa-60f9-99701b172b1f/AppIcon-1x_U007emarketing-85-220-0-3.png/246x0w.jpg",
+      title: "Sala 2",
+    ),
+    Room(
+      img: "https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/4c/6a/df/4c6adfa3-b9c0-25aa-60f9-99701b172b1f/AppIcon-1x_U007emarketing-85-220-0-3.png/246x0w.jpg",
+      title: "Sala 3",
+    ),
+    Room(
+      img: "https://is2-ssl.mzstatic.com/image/thumb/Purple122/v4/4c/6a/df/4c6adfa3-b9c0-25aa-60f9-99701b172b1f/AppIcon-1x_U007emarketing-85-220-0-3.png/246x0w.jpg",
+      title: "Sala 4",
+    ),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: ListView.separated(
-        itemCount: 50,
+        itemCount: list.length,
         separatorBuilder: (context, index) {
           return Row(
             children: <Widget>[
@@ -21,32 +45,17 @@ class ConversationsListComponent extends StatelessWidget {
           );
         },
         itemBuilder: (context, index) {
-          if (index == 0) {
+
+            Room room = list[index];
+
             return ListTile(
               leading: CircleAvatar(
                 backgroundColor: Theme.of(context).dividerColor,
                 backgroundImage: NetworkImage(
-                  "https://media.licdn.com/dms/image/C5603AQFTmUkulb9RXA/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=SkR--HptIqilOHLbjCQQTjrFuFzFkapsz-GS4Lb9_Cw",
+                  room.img
                 ),
               ),
-              title: Text("Vilson"),
-              subtitle: Text("Oi bb"),
-              trailing: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text("18:34", style: TextStyle(fontSize: 12)),
-                ],
-              ),
-            );
-          } else {
-            return ListTile(
-              leading: CircleAvatar(
-                backgroundColor: Theme.of(context).dividerColor,
-                backgroundImage: NetworkImage(
-                  "https://i.pravatar.cc/150?img=$index",
-                ),
-              ),
-              title: Text("Conversation $index"),
+              title: Text(room.title),
               subtitle: Text(
                 "Received message",
                 overflow: TextOverflow.ellipsis,
@@ -57,8 +66,11 @@ class ConversationsListComponent extends StatelessWidget {
                   Text("18:34", style: TextStyle(fontSize: 12)),
                 ],
               ),
+              onTap: (){
+                BlocProvider.getBloc<RoomBloc>().enterRoom(room);
+              },
             );
-          }
+          
         },
       ),
     );

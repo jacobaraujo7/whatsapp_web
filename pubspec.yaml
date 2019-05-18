@@ -8,15 +8,16 @@ environment:
 dependencies:
   flutter_web: any
   flutter_web_ui: any
+  bloc_pattern:
+    git:
+      url: https://github.com/jacobaraujo7/bloc-pattern.git
+      ref: web
 
 dev_dependencies:
   build_runner: ^1.4.0
   build_web_compilers: ^2.0.0
   pedantic: ^1.0.0
-  bloc_pattern:
-    git:
-      url: https://github.com/jacobaraujo7/bloc-pattern.git
-      ref: web
+  
 
 dependency_overrides:
   flutter_web:
