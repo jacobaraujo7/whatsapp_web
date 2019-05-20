@@ -3,6 +3,7 @@ import 'package:whatsapp_web/src/models/message.dart';
 import 'package:whatsapp_web/src/models/room.dart';
 import 'package:whatsapp_web/src/models/user.dart';
 import 'package:whatsapp_web/src/shared/mixins/after_layout_mixin.dart';
+import 'package:whatsapp_web/src/shared/widgets/custom_scrollbar/custom_scrollbar_widget.dart';
 
 import 'components/message_blob/message_blob_component.dart';
 
@@ -17,35 +18,46 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> with AfterLayoutMixin {
   ScrollController _controller;
+  Size contextSize;
 
   Widget _buildMessage() {
     return Stack(
       fit: StackFit.expand,
       children: <Widget>[
-        Image.network(
-          "https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png",
-          fit: BoxFit.cover,
+        Container(
+          color: Color(0xFFE5DDD5),
+          child: Opacity(
+            opacity: 0.07,
+            child: Image.asset(
+              "images/background-chat.png",
+              fit: BoxFit.contain,
+              repeat: ImageRepeat.repeat,
+            ),
+          ),
         ),
-        ListView.separated(
+        CustomScrollbarWidget(
           controller: _controller,
-          padding: EdgeInsets.symmetric(
-              vertical: 18,
-              horizontal: MediaQuery.of(context).size.width * 0.05),
-          itemCount: 50,
-          separatorBuilder: (context, index) => Container(height: 10),
-          itemBuilder: (context, index) {
-            return MessageBlobComponent(
-              me: index.isEven,
-              message: Message(
-                user: User(
-                  id: index.toString(),
-                  nick: index.isEven ? "Usuário 01" : "Usuário 2",
+          child: ListView.separated(
+            controller: _controller,
+            padding: EdgeInsets.symmetric(
+                vertical: 18,
+                horizontal: MediaQuery.of(context).size.width * 0.05),
+            itemCount: 50,
+            separatorBuilder: (context, index) => Container(height: 10),
+            itemBuilder: (context, index) {
+              return MessageBlobComponent(
+                me: index.isEven,
+                message: Message(
+                  user: User(
+                    id: index.toString(),
+                    nick: index.isEven ? "Usuário 01" : "Usuário 2",
+                  ),
+                  message: "Teste $index",
+                  time: DateTime.now().millisecondsSinceEpoch,
                 ),
-                message: "Teste $index",
-                time: DateTime.now().millisecondsSinceEpoch,
-              ),
-            );
-          },
+              );
+            },
+          ),
         ),
       ],
     );
@@ -193,6 +205,8 @@ class _ChatPageState extends State<ChatPage> with AfterLayoutMixin {
     _controller.position.moveTo(
       _controller.position.maxScrollExtent,
     );
+
+    contextSize = context.size;
   }
 
   @override
